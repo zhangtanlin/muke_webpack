@@ -1,0 +1,21 @@
+{
+  "ecmaVersion": "5",
+  "libs": [],
+  "loadEagerly": [
+    "*.js"
+  ],
+  "dontLoad": [
+    "node_modules/**"
+  ],
+  "plugins": {
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": false
+    }
+  }
+}
