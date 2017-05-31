@@ -1,4 +1,4 @@
 function helloWorld(arg) {
   console.log(arg);
 }
-helloWorld("hello world");
+helloWorld("你好世界");

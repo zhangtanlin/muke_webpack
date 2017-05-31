@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -74,24 +74,6 @@ function a(arg) {
   alert(arg);
 }
 a("我是用来测试entry的数组写法的第二个文件");
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function helloWorld(arg) {
-  console.log(arg);
-}
-helloWorld("hello world");
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-module.exports = __webpack_require__(0);
 
 
 /***/ })
