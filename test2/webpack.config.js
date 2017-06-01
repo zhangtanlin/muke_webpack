@@ -16,7 +16,7 @@
   打包后新生成的文件怎么才能被html文件的链接引用？这时需要在module.exports里面的
   plugins内添加html-webpack-plugin插件
 */
-var htmlWebpack = require("html-webpack-plugin");
+var htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   /**
@@ -55,15 +55,16 @@ module.exports = {
     打包之后的文件里面不符合js和html文件分离的目标】。所以需要修改output的path定位到
     dist文件夹和filename前面追加一个js文件夹。
     */
-    new htmlWebpack({
+    new htmlWebpackPlugin({
       /**
       html-webpack-plugin插件不仅仅可以支持html引入文件路径的修改，还可以修改
       【文件名】                           filename:"index-[hash].html"
       【引入路径放在什么位置(head或者body)】inject:"head"
       */
-      template: "index.html",
-      inject: "head",
-      filename: "index-[hash].html"
+      "template": "index.html",
+      "inject": "head",
+      "title": "我是一个title",
+      "time": new Date()
     })
   ]
 }

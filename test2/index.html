@@ -5,11 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>第一个webpack项目</title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
 
 <body>
   <h1>我的第一个标签</h1>
+  <h5>现在时间是：<%= htmlWebpackPlugin.options.time %></h5>
 </body>
 
 </html>
