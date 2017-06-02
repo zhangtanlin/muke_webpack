@@ -33,6 +33,10 @@ module.exports = {
   },
   output: {
     /**
+     * publicPath:当项目打包好需要上线时需要一个绝对路径，可以利用publicPath进行配置
+     */
+    //publicPath: "http://cdn.com",
+    /**
     打包后的文件输出【这个地址需要为绝对路径】如果地址为"/test2/dist/js"则打包到当前
     文件下即D盘、E盘之类的。所以path地址应该写为：E:/atom/muke_webpack/test2
     */
@@ -43,7 +47,7 @@ module.exports = {
     量，从而一个单独的文件打包成一个单独文件，可以设置[name].js,也可以设置[hash].js,
     甚至可以拼接[name]-[hash].js等灵活写法
     */
-    filename: "js/[name]-[hash].js"
+    filename: "js/[name].js"
   },
   plugins: [
     /**
@@ -64,7 +68,7 @@ module.exports = {
       "template": "index.html",
       "inject": "head",
       "title": "我是一个title",
-      "time": new Date()
+      "date": new Date()
     })
   ]
 }

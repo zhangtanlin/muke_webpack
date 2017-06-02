@@ -12,7 +12,28 @@
 
 <body>
   <h1>我的第一个标签</h1>
-  <h5>现在时间是：<%= htmlWebpackPlugin.options.time %></h5>
+  <h5>现在时间是：<%= htmlWebpackPlugin.options.date %></h5>
+  <div style="background-color:red;">
+    <% for(var key in htmlWebpackPlugin){ %>
+      <%= key %><br/>
+        <% } %>
+  </div>
+  <div style="background-color:pink;">
+    <% for(var keyf in htmlWebpackPlugin.files){ %>
+      <%= keyf %>:
+        <%= JSON.stringify(htmlWebpackPlugin.files[keyf]) %><br/>
+          <% } %>
+  </div>
+  <div style="background-color:yellowgreen;">
+    <% for(var keyo in htmlWebpackPlugin.options){ %>
+      <%= keyo %>:
+        <%= JSON.stringify(htmlWebpackPlugin.options[keyo]) %><br/>
+          <% } %>
+  </div>
+
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>" charset="utf-8"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.a.entry %>" charset="utf-8"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.b.entry %>" charset="utf-8"></script>
 </body>
 
 </html>
