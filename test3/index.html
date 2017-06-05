@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+
+  <h1>我的第一个标签</h1>
+  <h5>现在时间是：<%= htmlWebpackPlugin.options.date %></h5>
+
+  <!-- 我是注释，为了验证htmlWebpackPlugin的minify压缩方法是否能压缩代码和删除注释 -->
+  <div style="background-color:red;">
+    <% for(var key in htmlWebpackPlugin){ %>
+      <%= key %><br/>
+        <% } %>
+  </div>
+  <div style="background-color:pink;">
+    <% for(var keyf in htmlWebpackPlugin.files){ %>
+      <%= keyf %>:
+        <%= JSON.stringify(htmlWebpackPlugin.files[keyf]) %><br/>
+          <% } %>
+  </div>
+  <div style="background-color:yellowgreen;">
+    <% for(var keyo in htmlWebpackPlugin.options){ %>
+      <%= keyo %>:
+        <%= JSON.stringify(htmlWebpackPlugin.options[keyo]) %><br/>
+          <% } %>
+  </div>
+
+
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>" charset="utf-8"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.a.entry %>" charset="utf-8"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.b.entry %>" charset="utf-8"></script>
+</body>
+
+</html>

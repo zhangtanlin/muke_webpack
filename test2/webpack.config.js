@@ -29,7 +29,8 @@ module.exports = {
   entry: {
     "main": "./src/script/main.js",
     "a": "./src/script/a.js",
-    "b": "./src/script/b.js"
+    "b": "./src/script/b.js",
+    "c": "./src/script/c.js"
   },
   output: {
     /**
@@ -64,10 +65,17 @@ module.exports = {
       html-webpack-plugin插件不仅仅可以支持html引入文件路径的修改，还可以修改
       【文件名】                           filename:"index-[hash].html"
       【引入路径放在什么位置(head或者body)】inject:"head"
+      【上线压缩操作】minify对当前生成的html进行压缩:
       */
       "template": "index.html",
       "inject": "head",
       "title": "我是一个title",
+      "minify": {
+        //删除注释
+        "removeComments": true,
+        //删除空格
+        "collapseWhitespace": true
+      },
       "date": new Date()
     })
   ]
