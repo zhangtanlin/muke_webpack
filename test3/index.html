@@ -8,6 +8,16 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+  <!--
+  需求：由于main.js里面的代码比较少，所以把main.js里面的代码全部加载到html头部
+  获取公共模块main的ip地址：htmlWebpackPlugin.files.chunks.main.entry
+  获取公共模块main路径：htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)
+  获取公共模块main代码：compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()
+  注意：添加公共代码，需要在webpack.config.js的plugins-chunks里面添加到main模块，否则报错
+  -->
+  <script type="text/javascript">
+    <%=compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()%>
+  </script>
 </head>
 
 <body>
@@ -35,9 +45,14 @@
   </div>
 
 
-  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>" charset="utf-8"></script>
-  <script src="<%= htmlWebpackPlugin.files.chunks.a.entry %>" charset="utf-8"></script>
-  <script src="<%= htmlWebpackPlugin.files.chunks.b.entry %>" charset="utf-8"></script>
+
+
+  <!-- 为了配合加载公共模块：禁止自动添加链接，手动利用一个循环添加链接 -->
+  <% for(var script in htmlWebpackPlugin.files.chunks){ %>
+    <% if(script !== "main"){ %>
+      <script src="<%= htmlWebpackPlugin.files.chunks[script].entry %>" charset="utf-8"></script>
+      <% } %>
+        <% } %>
 </body>
 
 </html>
