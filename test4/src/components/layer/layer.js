@@ -1,4 +1,4 @@
-import templ from "./layer.html";
+// import templ from "./layer.html";
 
 function layer() {
   return {
