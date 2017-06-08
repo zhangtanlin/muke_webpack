@@ -1,0 +1,14 @@
+<!-- 把页面用ejs替换也可以把文件后缀名改成模板名即layer.ejs改成layer.templ
+注意1：ejs里面的值一定要用空格隔开，例如：
+      <%= arr[i] %>
+      否则会报错。
+注意2：ejs里面没有“{{ name }}”这个语法，这样写也会报错
+ -->
+<div class="layer">
+  <!-- 注意：在模板中引入相对路径需要使用require的方法不然webpack识别不了 -->
+  <img src="${require('../../images/img3.jpg')}" alt="">
+  <div>我是一个layer组件,名字叫做<%= name %></div>
+  <% for(var i=0;i<arr.length;i++){ %>
+    <%= arr[i] %>
+  <% } %>
+</div>

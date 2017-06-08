@@ -15,25 +15,29 @@ module.exports = {
       exclude: path.resolve(__dirname, "node_modules"),
       include: path.resolve("./src/")
     }, {
+      test: /\.html$/,
+      loader: "html-loader"
+    }, {
+      test: /\.ejs$/,
+      loader: "ejs-loader"
+    }, {
       /**
-       * 利用postcss-loader里面的autoprefixer方法给css添加兼容性前缀
-       注意1：node.js处理方式是先处理后面的所以postcss-loader要排在后面
-       注意2：loader: "style-loader!css-loader!postcss-loader"
-            也可以写成loaders: ["style-loader","css-loader","postcss-loader"]
+       * 增加图片处理规则file-loader。
+       注意1：正则匹配方式
+       注意2：在模板中(layer.ejs)中引入图片需要使用require()路径
        */
+      test: /\.(png|jpg|gif|svg)$/,
+      loader: "file-loader"
+    }, {
       test: /\.css$/,
       loader: "style-loader!css-loader!postcss-loader"
+    }, {
+      test: /\.less$/,
+      loader: "style-loader!css-loader!postcss-loader!less-loader"
     }]
   },
-  /**
-   * postcss会返回一个postcss-loader的依赖插件
-   */
   postcss: [
     require("autoprefixer")({
-      /**
-       * 添加autoprefixer的参数
-       broswers:["last 5 versions"]表示浏览器最近的5个版本
-       */
       broswers: ["last 5 versions"]
     })
   ],

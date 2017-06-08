@@ -16,24 +16,28 @@ module.exports = {
       include: path.resolve("./src/")
     }, {
       /**
-       * 利用postcss-loader里面的autoprefixer方法给css添加兼容性前缀
-       注意1：node.js处理方式是先处理后面的所以postcss-loader要排在后面
-       注意2：loader: "style-loader!css-loader!postcss-loader"
-            也可以写成loaders: ["style-loader","css-loader","postcss-loader"]
+       * 在webpack.github.io里面list of loader下可以找到templating所有支持的模板
        */
+      test: /\.html$/,
+      loader: "html-loader"
+    }, {
+      /**
+       * 安装ejs模板规则【让.ejs的文件使用ejs-loader规则】
+       注意：安装ejs模板规则后可以让文件不用ejs后缀而用模板名
+       例如：layer.ejs模块的后缀可以改成layer.templ
+       */
+      test: /\.ejs$/,
+      loader: "ejs-loader"
+    }, {
       test: /\.css$/,
       loader: "style-loader!css-loader!postcss-loader"
+    }, {
+      test: /\.less$/,
+      loader: "style-loader!css-loader!postcss-loader!less-loader"
     }]
   },
-  /**
-   * postcss会返回一个postcss-loader的依赖插件
-   */
   postcss: [
     require("autoprefixer")({
-      /**
-       * 添加autoprefixer的参数
-       broswers:["last 5 versions"]表示浏览器最近的5个版本
-       */
       broswers: ["last 5 versions"]
     })
   ],

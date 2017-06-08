@@ -1,0 +1,17 @@
+// 在less中引入外部less文件
+@import "./outLessFile.less";
+
+.layer{
+  width: 600px;
+  height: 200px;
+  background-color: yellowgreen;
+  >div{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+  }
+  // 测试在less-loader里面套用autoprefixer可以成功不
+  .flex-box2{
+    display: flex;
+  }
+}

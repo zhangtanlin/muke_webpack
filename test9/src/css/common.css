@@ -2,7 +2,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  background-color: red;
+  background-color: #c2c2c2;
 }
 
 ul > li {
@@ -10,6 +10,7 @@ ul > li {
   margin: 0;
   list-style: none;
 }
+/*测试给display: flex添加前缀*/
 
 .flex-div {
   display: flex;

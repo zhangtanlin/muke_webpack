@@ -1,9 +1,14 @@
 {
-  "name": "test6",
+  "name": "test7",
   "version": "1.0.0",
-  "description": "css兼容性处理添加前缀",
+  "description": "less-loader的学习",
   "main": "webpack.config.js",
-  "dependencies": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --config webpack.config.js --progress --display-modules --color"
+  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
@@ -11,14 +16,10 @@
     "babel-preset-latest": "^6.16.0",
     "css-loader": "^0.25.0",
     "html-webpack-plugin": "^2.22.0",
+    "less": "^2.3.1",
+    "less-loader": "^2.2.3",
     "postcss-loader": "^1.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.15.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --config webpack.config.js --progress --display-modules --color"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
