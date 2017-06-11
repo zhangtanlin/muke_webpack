@@ -21,21 +21,24 @@ module.exports = {
       test: /\.ejs$/,
       loader: "ejs-loader"
     }, {
-      /**
-       * 增加图片处理规则file-loader。
-       注意1：正则匹配方式
-       注意2：在模板中(layer.ejs)中引入图片需要使用require()路径
-       */
       test: /\.(png|jpg|gif|svg)$/,
-      loader: "file-loader",
       /**
-       * query是
-       query.name用以修改图片的存放路径、名字等
-       [hash:5]表示只获取hash值得前五位
+       * 利用image-webpack-laoder对图片进行压缩
+       注意：是先处理image-webpack-loader
+            再处理url-laoder?limit=20000&name=images/[name]-[hash:5].[ext]
        */
-      query: {
-        name: "images/[name]-[hash:5].[ext]"
-      }
+      loaders: [
+        "file-loader?limit=10000&name=images/[name]-[hash:5].[ext]",
+        "image-webpack-loader"
+      ]
+      // loader: "url-loader",
+      // query: {
+      //   limit: 20000,
+      //   name: "images/[name]-[hash:5].[ext]"
+      // }
+
+
+
     }, {
       test: /\.css$/,
       loader: "style-loader!css-loader!postcss-loader"

@@ -1,7 +1,7 @@
 {
   "name": "test9",
   "version": "1.0.0",
-  "description": "处理相对路径的background-img图片",
+  "description": "url-loader学习",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,6 +23,7 @@
     "less-loader": "^2.2.3",
     "postcss-loader": "^1.1.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.15.0"
   },
   "dependencies": {}

@@ -188,7 +188,7 @@
 			};
 		},
 		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+			return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 		}),
 		getHeadElement = memoize(function () {
 			return document.head || document.getElementsByTagName("head")[0];
@@ -499,7 +499,7 @@
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "07ccd8f12deacb0e97b34cef00dbc938.jpg";
+	module.exports = __webpack_require__.p + "images/img1-07ccd.jpg";
 
 /***/ }),
 /* 10 */
@@ -510,9 +510,9 @@
 	var __t, __p = '', __j = Array.prototype.join;
 	function print() { __p += __j.call(arguments, '') }
 	with (obj) {
-	__p += '<!-- 把页面用ejs替换也可以把文件后缀名改成模板名即layer.ejs改成layer.templ\n注意1：ejs里面的值一定要用空格隔开，例如：\n      ' +
+	__p += '<!-- 把页面用ejs替换也可以把文件后缀名改成模板名即layer.ejs改成layer.templ\r\n注意1：ejs里面的值一定要用空格隔开，例如：\r\n      ' +
 	((__t = ( arr[i] )) == null ? '' : __t) +
-	'\n      否则会报错。\n注意2：ejs里面没有“{{ name }}”这个语法，这样写也会报错\n -->\r\n<div class="layer">\r\n  <img src="' +
+	'\r\n      否则会报错。\r\n注意2：ejs里面没有“{{ name }}”这个语法，这样写也会报错\r\n -->\r\n<div class="layer">\r\n  <!-- 注意：在模板中引入相对路径需要使用require的方法不然webpack识别不了 -->\r\n  <img src="' +
 	((__t = (__webpack_require__(11))) == null ? '' : __t) +
 	'" alt="">\r\n  <div>我是一个layer组件,名字叫做' +
 	((__t = ( name )) == null ? '' : __t) +
@@ -532,7 +532,7 @@
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "ad2ea611a3093f7bec13226fe5433dcd.jpg";
+	module.exports = __webpack_require__.p + "images/img3-ad2ea.jpg";
 
 /***/ })
 /******/ ]);

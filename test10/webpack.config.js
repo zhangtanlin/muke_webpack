@@ -21,19 +21,21 @@ module.exports = {
       test: /\.ejs$/,
       loader: "ejs-loader"
     }, {
-      /**
-       * 增加图片处理规则file-loader。
-       注意1：正则匹配方式
-       注意2：在模板中(layer.ejs)中引入图片需要使用require()路径
-       */
       test: /\.(png|jpg|gif|svg)$/,
-      loader: "file-loader",
       /**
-       * query是
-       query.name用以修改图片的存放路径、名字等
-       [hash:5]表示只获取hash值得前五位
+       * 引入url-loader
+       作用是：当图片链接文件小于多少KB时会自动把图片转成base格式代码
+       注意1：模板里的文件会打包到模板里面，html上引入的会添加到html里面
+       注意2：把图片不当做代码加入到http里面，可以享受http请求的缓存优势，可重复调用，
+              而把图片转换成代码会导致http请求代码冗余【影响html代码大小】。
        */
+      loader: "url-loader",
       query: {
+        /**
+         * limit：是url-loader来控制图片链接大小的
+         注意：单位是kb，即20000KB==19M(即小于19KB的文件都会转成代码)
+         */
+        limit: 20000,
         name: "images/[name]-[hash:5].[ext]"
       }
     }, {

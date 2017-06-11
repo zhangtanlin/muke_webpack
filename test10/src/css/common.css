@@ -1,0 +1,17 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #c2c2c2;
+}
+
+ul > li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/*测试给display: flex添加前缀*/
+
+.flex-div {
+  display: flex;
+}

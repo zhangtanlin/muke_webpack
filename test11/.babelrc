@@ -1,0 +1,4 @@
+/*注意：babel处理js的配置文件【把es2015作为标准】*/
+{
+  "presets": ["latest"]
+}
